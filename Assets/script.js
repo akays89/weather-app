@@ -65,5 +65,17 @@ function getCityLocation(response){
     let weatherIconArr = response.current.weather[0].icon;
     weatherIcon.src = weatherIconURL + weatherIconArr + ".png";
 
+    let description = document.querySelector("#weather-desc");
+    description.innerHTML = `${response.current.weather[0].description}`
+
+    let humidity = document.querySelector("#humidity");
+    humidity.innerHTML = `Humidity: ${response.current.humidity}%`
+
+    let windSpeed = document.querySelector("#wind-speed");
+    windSpeed.innerHTML = `Wind Speed: ${response.current.wind_speed} MPH`;
+
+    let uvIndex = document.querySelector("#UV-index");
+    uvIndex.innerHTML = response.current.uvi;
+
  }
 
