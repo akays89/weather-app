@@ -34,17 +34,36 @@ function getCityLocation(response){
         search.value = "";
     }  
 
-    var location = document.querySelector("#city-name");
+    let location = document.querySelector("#city-name");
     location.innerHTML = `${response.name}, ${response.sys.country}`;
 
-    var temp = document.querySelector("#temperature");
+    let temp = document.querySelector("#temperature");
     temp.innerHTML = `${Math.round(response.main.temp)}°`
 
-  }
+  
 
+ let longitude = response.coord.lon;
+ let latitude = response.coord.lat;
 
+ fetch(`${api.BASE_URL}onecall?lat=${latitude}&lon=${longitude}&appid=${api.key}`)
+ .then(function(response){
+     return response.json();
+ })
+ .then(displayData)
+}
+
+ function displayData(response){
+    console.log(response);
 
     
+    let timeStamp = response.current.dt;
+    let dateNTime = new Date(timeStamp * 1000);
+    document.querySelector("#time").innerHTML = (dateNTime.toUTCString());
 
+    let weatherIcon = document.querySelector("#current-picture");
+    let weatherIconURL = "http://openweathermap.org/img/w/";
+    let weatherIconArr = response.current.weather[0].icon;
+    weatherIcon.src = weatherIconURL + weatherIconArr + ".png";
 
+ }
 
