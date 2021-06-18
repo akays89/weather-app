@@ -1,7 +1,7 @@
 
 
 const api = {
-    key: "dbc0e909c76459d6d2b6a5328a9579d5",
+    key: "9a8800d200eea3cb3f3e91778e91b00c",
     BASE_URL: "https://api.openweathermap.org/data/2.5/"
 }
 
@@ -38,7 +38,7 @@ function getCityLocation(response){
     location.innerHTML = `${response.name}, ${response.sys.country}`;
 
     let temp = document.querySelector("#temperature");
-    temp.innerHTML = `${Math.round(response.main.temp)}°`
+    temp.innerHTML = `Temperature: ${Math.round(response.main.temp)}°`
 
   
 
@@ -72,10 +72,14 @@ function getCityLocation(response){
     humidity.innerHTML = `Humidity: ${response.current.humidity}%`
 
     let windSpeed = document.querySelector("#wind-speed");
-    windSpeed.innerHTML = `Wind Speed: ${response.current.wind_speed} MPH`;
+    windSpeed.innerHTML = ` Wind Speed: ${response.current.wind_speed} MPH`;
 
     let uvIndex = document.querySelector("#UV-index");
-    uvIndex.innerHTML = response.current.uvi;
+    uvIndex.innerHTML = `UV Index: ${response.current.uvi}`;
 
- }
+    }
+
+    
+  
+  
 
