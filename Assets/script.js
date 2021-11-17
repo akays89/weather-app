@@ -79,7 +79,25 @@ function getCityLocation(response){
 
     }
 
+   function uvColor(){
+    let uvIndex = document.querySelector("#UV-index");
+    let uvValue = Number(uvIndex.innerHTML);
+    if (uvValue < 3){
+        uvIndex.style.backgroundColor = "green";
+    }
+    else if (uvValue >= 3 && uvValue < 6){
+        uvIndex.style.backgroundColor = "yellow";
+    }
+    else if (uvValue >= 6 && uvValue < 8){
+        uvIndex.style.backgroundColor = "orange";
+    }
+    else if (uvValue >= 8 && uvValue < 11){
+        uvIndex.style.backgroundColor = "red";
+    }
+    else if (uvValue >= 11){
+        uvIndex.style.backgroundColor = "violet";
+    }
+}
     
-  
   
 
