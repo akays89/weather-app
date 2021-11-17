@@ -78,6 +78,7 @@ function getCityLocation(response){
     uvIndex.innerHTML = `UV Index: ${response.current.uvi}`;
 
     }
+   
 
    function uvColor(){
     let uvIndex = document.querySelector("#UV-index");
@@ -98,6 +99,6 @@ function getCityLocation(response){
         uvIndex.style.backgroundColor = "violet";
     }
 }
-    
-  
+    uvColor();
+
 
